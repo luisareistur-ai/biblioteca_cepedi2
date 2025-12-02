@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <h1>Sistema de Biblioteca</h1>
+    <h1>Biblioteca do Povão</h1>
 
     <h2>Cadastrar Livro</h2>
     <form method="post">
@@ -20,8 +20,8 @@
         <label>Ano:</label><br>
         <input type="number" name="ano"><br><br>
 
-        <label>Gênero:</label><br>
-        <input type="text" name="genero"><br><br>
+        <label>Editora:</label><br>
+        <input type="text" name="editora"><br><br>
 
         <button type="submit">Salvar</button>
     </form>
@@ -37,7 +37,7 @@
                 <th>Título</th>
                 <th>Autor</th>
                 <th>Edição</th>
-                <th>Gênero</th>
+                <th>Editora</th>
             </tr>
 
             {% for livro in livros %}
