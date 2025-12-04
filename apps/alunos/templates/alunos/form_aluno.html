@@ -1,3 +1,7 @@
+{% load crispy_forms_tags %}
+
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,68 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Cadastro de Alunos</h1>
+    <div class="row">
+        <div class="col-12"></div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h2><i class="fa fa-users"></i> Cadastro de Alunos</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="container">
+                    <div class="p-1 mb-2 bg-light text-dark">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                {{ form.nome.errors }}
+                                <label><strong>Nome: </strong></label>
+                                {{ form.nome|add_class:"form-control" }}
+                            </div>
+                            <div class="col-md-2">
+                                {{ form.matricula.errors }}
+                                <label><strong>Matrícula: </strong></label>
+                                {{ form.matricula|add_class:'form-control' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="p-1 mb-2 bg-light text-dark">
+                        <div class="form-row">
+                            <div class="col-md-1">
+                                {{ form.email.errors }}
+                                <label><strong>email:</strong></label>
+                                {{ form.email|add_class:'form-control' }}
+                            </div>
+                            <div class="col-md-4 mb-0">
+                                {{ form.telefone.errors }}
+                                <label><strong>telefone:</strong></label>
+                                {{ form.telefone|add_class:'form-control'  }}
+                            </div>
+                            <div class="col-md-3">
+                                {{ form.data_evento.erros }}
+                                <label><strong>data_evento:</strong></label>
+                                {{ form.data_evento|add_class:'form-control' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="p-1 mb-2 bg-light text-dark">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                               <button type="submit" class="btn btn-success">Salvar</button>
+                               <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
