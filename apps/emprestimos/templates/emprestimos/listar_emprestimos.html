@@ -19,7 +19,7 @@
     </div>
     <div class="card mb-3">
         <div class="card-header">
-            <h2><i class="fa fa-list"> Listagem de livros</i></h2>
+            <h2><i class="fa fa-list"> Listagem de Empréstimos</i></h2>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -27,35 +27,32 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Título</th>
-                            <th>Autor</th>
-                            <th>Edição</th>
-                            <th>Editora</th>
-                            <th>Data Publicação</th>
-			                <th>ISBN</th>
-                            <th>Páginas</th>
-                            <th>Opções</th>
+                            <th>Aluno</th>
+                            <th>Livro</th>
+                            <th>Data Empréstimo</th>
+                            <th>Data Devolução</th>
+                            <th>Data Prevista Devolução</th>
+			                <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for l in relacao_livros %}
+                    {% for e in emprestimos %}
                         <tr>
-                            <td>{{ l.id }}</td>
-                            <td><a href="#">{{ l.titulo.upper }}</a></td>
-                            <td>{{ l.autor }}</td>
-                            <td>{{ l.edicao }}</td>
-                            <td>{{ l.editora }}</td>
-                            <td>{{ l.ano_publicacao  | date:'d/m/Y'}}</td>
-                            <td>{{ l.isbn }}</td>
-                            <td>{{ l.numero_paginas }}</td>
+                            <td>{{ e.id }}</td>
+                            <td><a href="#">{{ e.aluno_id }}</a></td>
+                            <td>{{ e.livro_id }}</td>
+                            <td>{{ e.data_emprestimo | date:'d/m/Y'}}</td>
+                            <td>{{ e.data_devolucao | date:'d/m/Y'}}</td>
+                            <td>{{ e.data_prevista_devolucao | date:'d/m/Y'}}</td>
+                            <td>{{ e.get_status_display }}</td>
                             <td>
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
                                 </a>
-                                <a href="{% url 'livros:editar_livro' l.id %}">
+                                <a href="#">
                                     <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
                                 </a>
-                               <a href="{% url 'livros:excluir_livro' l.id %}">
+                               <a href="#">
                                     <i class="fa fa-trash" aria-hidden="true" style="color: red"></i>
                                 </a>
                             </td>
@@ -68,7 +65,7 @@
     </div>
     <div class="col-12 card mb-3">
         <div class="card-header">
-            <a href="{% url 'livros:inserir_livro' %}"><button class="btn btn-success">Cadastrar</button></a>
+            <a href="{% url 'emprestimos:inserir_emprestimo' %}"><button class="btn btn-success">Cadastrar</button></a>
         </div>
     </div>
 </body>
