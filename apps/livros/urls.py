@@ -9,5 +9,8 @@ urlpatterns = [
     path('listar_livros/', views.listar_livros, name='listar_livros'),
     path('editar_livro/<int:id>', views.editar_livro, name='editar_livro'),
     path('excluir_livro/<int:id>', views.excluir_livro, name='excluir_livro'),
+<<<<<<< HEAD
     path('detalhe_livro/<int:id>', views.detalhe_livro, name='detalhe_livro'),
+=======
+>>>>>>> dec613af3560ee40193b9f197de6e822329538d0
 ]

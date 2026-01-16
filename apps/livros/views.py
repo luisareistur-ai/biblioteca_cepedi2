@@ -30,10 +30,16 @@ def editar_livro(request, id):
     if form.is_valid():
         form.save()
         messages.success(request, 'Os dados foram atualizados com sucesso.')
+<<<<<<< HEAD
         return redirect('livros:listar_livros')
     return render(request, template_name, context)
 
 
+=======
+        return redirect('livros:editar_livro', id=id)
+    return render(request, template_name, context)
+
+>>>>>>> dec613af3560ee40193b9f197de6e822329538d0
 def excluir_livro(request, id):
     template_name = 'livros/excluir_livro.html'
     livro = Livro.objects.get(id=id)
@@ -42,9 +48,13 @@ def excluir_livro(request, id):
         livro.delete()
         messages.error(request, 'O livro foi excluído com sucesso.')
         return redirect('livros:listar_livros')
+<<<<<<< HEAD
     return render(request, template_name, context)
 
 
 def detalhe_livro(request, id):
     livro = get_object_or_404(Livro, id=id)
     return render(request, 'livros/detalhe_livro.html', {'livro': livro})
+=======
+    return render(request, template_name, context)
+>>>>>>> dec613af3560ee40193b9f197de6e822329538d0

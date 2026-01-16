@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 from tempfile import template
 
 from django.contrib import messages
 from django.shortcuts import redirect, render, get_object_or_404
 
+=======
+from django.contrib import messages
+from django.shortcuts import redirect, render
+
+>>>>>>> dec613af3560ee40193b9f197de6e822329538d0
 from apps.emprestimos.forms import EmprestimoForm
 from apps.emprestimos.models import Emprestimo
 
@@ -19,6 +25,7 @@ def inserir_emprestimo(request):
     context = {'form': form}
     return render(request, template_name, context)
 
+<<<<<<< HEAD
 
 def listar_emprestimos(request):
     template_name = 'emprestimos/listar_emprestimos.html'
@@ -45,4 +52,10 @@ def excluir_emprestimo(request, id):
         emprestimo.delete()
         messages.error(request, 'O Empréstimo foi excluído com sucesso')
         return redirect('emprestimos:listar_emprestimos')
+=======
+def listar_emprestimos(request):
+    template_name = 'emprestimos/listar_emprestimos.html'
+    emprestimos = Emprestimo.objects.all()
+    context = {'emprestimos': emprestimos}
+>>>>>>> dec613af3560ee40193b9f197de6e822329538d0
     return render(request, template_name, context)
