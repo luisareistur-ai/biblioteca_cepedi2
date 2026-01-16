@@ -46,8 +46,9 @@ INSTALLED_APPS = [
     'apps.alunos',
     'apps.livros',
     'apps.emprestimos',
-    'apps.core',
     'apps.editoras',
+    'apps.autores',
+    'apps.core',
 ]
 
 MIDDLEWARE = [

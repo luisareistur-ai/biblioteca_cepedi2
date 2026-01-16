@@ -9,6 +9,7 @@ from django.db.models import Count
 def index(request):
     total_alunos =  Aluno.objects.all().count()
     total_livros = Livro.objects.all().count()
+#    total_editoras = Editora.objects.all().count()
     total_emprestimos = Emprestimo.objects.filter(status='E').count()
 
     emprestimos_por_mes = (
@@ -34,6 +35,7 @@ def index(request):
     context = {
         'total_alunos': total_alunos,
         'total_livros': total_livros,
+#        'total_editoras': total_editoras,
         'total_emprestimos': total_emprestimos,
         'meses': meses,
         'totais': totais,

@@ -6,6 +6,3 @@ from .models import Editora
 class EditoraAdmin(admin.ModelAdmin):
     list_display = ['editora',]
     search_fields = ['editora', 'telefone']
-
-
-
